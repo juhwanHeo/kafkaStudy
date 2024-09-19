@@ -1,18 +1,24 @@
 server:
-  port: 8081
+  port: 8084
 
 spring:
   application:
     name: kafka-mvc-java
+
+  devtools:
+    restart:
+      enabled: false
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
+    #      auto-offset-reset: earliest # 첫 offset 부터 읽는 옵션
       bootstrap-servers: localhost:9092
       group-id: group-id-test
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringSerializer
-#      auto-offset-reset: earliest # 첫 offset 부터 읽는 옵션
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
