@@ -28,7 +28,7 @@ services:
       - 8989:8080
     environment:
       KAFKA_CLUSTERS_0_NAME: kafka-cluster
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker:9092
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker:19092
       KAFKA_CLUSTERS_0_ZOOKEEPER: broker:29093
     depends_on:
       - broker
